@@ -36,25 +36,6 @@ function App() {
         })}
       </ul>
     </body>
-
-    /* <button
-onClick={() => {
-  // name !== "" ? setName("") : setName("Frango")
-  aberto === true ? setAberto(false) : setAberto(true);
-}}
->
-{aberto === true ? "Desaparece" : "Aparece"}
-</button>
-<p> {aberto === true ? "frango" : ""} </p> */
-
-    // <div>
-    //   <form>
-    //     <label>
-    //     <p>Contador: {name} </p>
-    //       <input type="text" onChange={(event) => setName(event.target.value)} />
-    //     </label>
-    //   </form>
-    // </div>
   );
 }
 

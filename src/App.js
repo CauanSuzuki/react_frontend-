@@ -4,21 +4,20 @@ import React, { useState } from "react";
 
 function App() {
   const [name, setName] = useState("");
-  const [lista, setLista] = useState([]);
-  const [count, setCount] = useState(0);
+  const [lista, setLista] = useState(['a']);
+
   const funcaoAdicionar = () => {
-    setCount(count + 1);
-    setLista([...lista, { id: count, name: name }]);
+    setLista([...lista, { name: name }]);
   };
 
   const funcaoDeletar = () => {
-    setLista(lista.filter((value, index) => index !== i));
+    setLista(lista.filter((value, index) => index !== lista.indexOf('a')));
   };
 
   const funcaoAlterar = () => {
     setLista(
       lista.map((value, index) =>
-        index !== i ? value : { ...lista, name: name }
+        index !== lista.indexOf(value) ? value : { ...lista, name: name }
       )
     );
   };
@@ -26,20 +25,15 @@ function App() {
   return (
     <body>
       <input type="text" onChange={(event) => setName(event.target.value)} />
-      <button
-        onClick={() => {
-          funcaoAdicionar;
-        }}
-      >
-        Adicionar
-      </button>
+      <button onClick={() => funcaoAdicionar ()}>Adicionar</button>
+      {console.log(lista)}
       <ul>
-        {lista.map((item, i) => {
+        {lista.map((item, cte) => {
           return (
             <li>
               {item.name}
-              <button onClick={() => funcaoDeletar}>Remover</button>
-              <button onClick={() => funcaoAlterar}>Alterar</button>
+              <button onClick={() => funcaoDeletar()}>Remover</button>
+              <button onClick={() => funcaoAlterar()}>Alterar</button>
             </li>
           );
         })}

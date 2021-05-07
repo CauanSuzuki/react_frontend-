@@ -24,7 +24,7 @@ function App() {
   const funcaoRiscar = (id) => {
     setLista(
       lista.map((item)=> {
-        if (item.id == id) {
+        if (item.id === id) {
           return {
             id:item.id,
             name:item.name,
@@ -44,11 +44,11 @@ function App() {
       <ul>
         {lista.map((item, i) => {
           return (
-            <li style = "text-decoration: line-through"  >
+            <li style = {{ textDecoration: item.riscado === true ? "line-through" : "none" }}>
               {item.name}
               <button onClick={() => funcaoDeletar(item.id)}>Remover</button>
               <button onClick={() => funcaoAlterar(item.id)}>Alterar</button>
-              <button onClick={() => funcaoRiscar}>Riscar</button>
+              <button onClick={() => funcaoRiscar(item.id)}>Riscar</button>
             </li>
           );
         })}

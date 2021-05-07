@@ -7,7 +7,7 @@ function App() {
   const [lista, setLista] = useState([]);
 
   const funcaoAdicionar = () => {
-    setLista([...lista, { id: Math.random(), name: name }]);
+    setLista([...lista, { id: Math.random(), name: name , riscado:false}]);
   };
 
   const funcaoDeletar = (id) => {
@@ -21,6 +21,20 @@ function App() {
       )
     );
   };
+  const funcaoRiscar = (id) => {
+    setLista(
+      lista.map((item)=> {
+        if (item.id == id) {
+          return {
+            id:item.id,
+            name:item.name,
+            riscado: !item.riscado,
+          };
+          return item
+        }})
+)
+  }
+
 
   return (
     <body>
@@ -30,10 +44,11 @@ function App() {
       <ul>
         {lista.map((item, i) => {
           return (
-            <li>
+            <li style = "text-decoration: line-through"  >
               {item.name}
               <button onClick={() => funcaoDeletar(item.id)}>Remover</button>
               <button onClick={() => funcaoAlterar(item.id)}>Alterar</button>
+              <button onClick={() => funcaoRiscar}>Riscar</button>
             </li>
           );
         })}
